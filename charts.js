@@ -138,7 +138,10 @@ function buildCharts(sample) {
     
         // 2. Create the layout for the bubble chart.
         var bubbleLayout = {
-          title: "Bacteria Culture Per Sample"
+          title: "Bacteria Culture Per Sample",
+          xaxis: {
+            title: {text:"OTU ID"}
+          }
 
 
         };
@@ -155,7 +158,7 @@ function buildCharts(sample) {
         value: metaFreq,
         type: "indicator",
         mode: "gauge+number",
-        title: {text: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week"},
+        title: {text: "Scrubs per Week"},
         gauge:{
           axis: {range: [null, 10], tick0: 0, dtick: 2},
           bar: { color: "black"},
@@ -171,12 +174,13 @@ function buildCharts(sample) {
     ];
     
     // // 5. Create the layout for the gauge chart.
-    // var gaugeLayout = { 
-    //      title: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week"
-    // };
+    var gaugeLayout = { 
+         title: {
+           text:"<b>Belly Button Washing Frequency</b>"}
+    };
 
     // 6. Use Plotly to plot the gauge data and layout.
-    Plotly.newPlot(gauge, gaugeData);
+    Plotly.newPlot(gauge, gaugeData, gaugeLayout);
 
         // ----End Deliverable 3 ------------
     
